@@ -30,23 +30,23 @@ function playRound(playerSelection, computerSelection) {
 //player win conditions
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore ++;
-        return(`You won! Rock beats Scissors. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+        return(`You won the round! Rock beats Scissors. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore ++;
-        return(`You won! Paper beats Rock. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+        return(`You won the round! Paper beats Rock. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore ++;
-        return (`You won! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+        return (`You won the round! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
 //computer win conditions
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore ++;
-        return(`You lose! Rock beats Scissors. Your score is: ${playerScore}. The computer's score is: ${computerScore}`);
+        return(`You lost the round! Rock beats Scissors. Your score is: ${playerScore}. The computer's score is: ${computerScore}`);
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         computerScore ++;
-        return (`You lose! Paper beats Rock.Your score is: ${playerScore}. The computer's score is: ${computerScore}`);
+        return (`You lost the round! Paper beats Rock.Your score is: ${playerScore}. The computer's score is: ${computerScore}`);
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         computerScore ++;
-        return(`You lose! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+        return(`You lost the round! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
     }
 }
 
@@ -63,19 +63,21 @@ function checkEndGame() {
 }
 
 function game(){
-    let playerSelection = prompt("Get ready to throw hands!").toLowerCase();
+    let playerSelection = prompt("Get ready to throw hands!");
+    if (playerSelection === null) {
+        return true;
+        }
     let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection.toLowerCase(), computerSelection));
     return checkEndGame();
 }
 
-for (let i = 0; i < 5000; i++) {
+while (true) {
     let gameEnded = game();
-    if (gameEnded === true) {
+    if (gameEnded == true) {
         break;
     }
 }
-
 </script>
 
 </body>
