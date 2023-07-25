@@ -24,6 +24,13 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    let validInputs = ["rock", "paper", "scissors"]
+    
+    while 
+    (!validInputs.includes(playerSelection.toLowerCase())) {
+    playerSelection = prompt("Please input \"rock\", \"paper\", or \"scissors\": ")
+    }
+    
 //tie
     if (playerSelection === computerSelection) {
         return(`It's a tie!" No points for anybody! You still have ${playerScore} and the computer still has ${computerScore}`)
@@ -47,6 +54,8 @@ function playRound(playerSelection, computerSelection) {
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         computerScore ++;
         return(`You lost the round! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+    } else {
+        let playerSelection = prompt("Please input \"rock\", \"paper\", or \"scissors\": ")
     }
 }
 
@@ -65,8 +74,9 @@ function checkEndGame() {
 function game(){
     let playerSelection = prompt("Get ready to throw hands!");
     if (playerSelection === null) {
+        alert("Thank you for playing!");
         return true;
-        }
+    }
     let computerSelection = getComputerChoice();
     console.log(playRound(playerSelection.toLowerCase(), computerSelection));
     return checkEndGame();
