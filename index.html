@@ -4,120 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div>
-    <button class='rock'>Rock</button>
-    <button class='paper'>Paper</button>
-    <button class='scissors'>Scissors</button>
-</div>
-<div class="resultDisplay">
-    <p class="announcement"></p>
-    <p class="scoreHuman"></p>
-    <p class="scoreComputer"></p>
-</div>
-
-<script>
-
-let playerScore = 0;
-let computerScore = 0;
-
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', function game() {
-        let playerSelection = button.classList.value
-        let computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection)
-        checkEndGame();
-    })
-})
-
-// if (checkEndGame()) 
-// create a div that pronounces the winner and contains a button to reset with class '.restart-btn' -> the following code
-        // document.querySelector('.restart-btn').addEventListener('click', function(){
-        //window.location.reload();
-        //return false;
-        //});
-// removeEventListener that allows clicks ^^^ above with .forEachmethod (just reverse the baove)
-// else <- this is false 
-
-// functions
-function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3);
-    if (randomNumber == 0) {
-        return "rock"
-    } else if (randomNumber == 1) {
-        return "paper"
-    } else if (randomNumber == 2) {
-        return "scissors"
-    }
-}
-
-function playRound(playerSelection, computerSelection) {
-    let capitalizeFirstHumanSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
-    let capitalizeFirstCompSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1);
-//tie
-    if (playerSelection === "rock" && computerSelection === "scissors" ||
-        playerSelection === "paper" && computerSelection === "rock" ||
-        playerSelection === "scissors" && computerSelection === "paper") {
-        
-        playerScore++;
-
-        const announcement = document.querySelector('.announcement')
-        announcement.textContent = `You won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
-
-        const scoreHuman = document.querySelector('.scoreHuman')
-        scoreHuman.textContent = `Human: ${playerScore}`
-        
-        const scoreComputer = document.querySelector('.scoreComputer')
-        scoreComputer.textContent = `Computer: ${computerScore}`
-
-    } else if (playerSelection === computerSelection) {
-        const resultDisplay = document.querySelector('.resultDisplay')
-        const announcement = document.querySelector('.announcement')
-        announcement.textContent = 'It\'s a tie! No points!'  
-
-        const scoreHuman = document.querySelector('.scoreHuman')
-        scoreHuman.textContent = `Human: ${playerScore}`
-         
-        const scoreComputer = document.querySelector('.scoreComputer')
-        scoreComputer.textContent = `Computer: ${computerScore}`
-
-    } else {
-        computerScore ++;
-
-        const announcement = document.querySelector('.announcement')
-        announcement.textContent = `The Computer won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
-
-        const scoreHuman = document.querySelector('.scoreHuman')
-        scoreHuman.textContent = `Human: ${playerScore}`
-        
-        const scoreComputer = document.querySelector('.scoreComputer')
-        scoreComputer.textContent = `Computer: ${computerScore}`
-    }
-}
-
-function checkEndGame() {
-        if (playerScore >= 5 && computerScore < 5) {
-            console.log("You won the game!");
-            return true;
-        } else if (computerScore >=5 && playerScore < 5) {
-            console.log("You lost the game!");
-            return true;
-        } else {
-            return false;
-        }
-}
-
-function game() {
-    let playerSelection = button.classList.value
-    let computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection)
-    checkEndGame();
-}
-
-//
-</script>
+    <div class="wrapper">
+        <div>
+            <button class="choice" id='rock'>Rock</button>
+            <button class="choice" id='paper'>Paper</button>
+        </div>
+        <div>
+            <button class="choice" id='scissors'>Scissors</button>
+        </div>
+        <div class="resultDisplay">
+            <p id="scoreHuman"></p>
+            <p id="scoreComputer"></p>
+        </div>
+        <div>
+            <p id="announcement"></p>
+        </div>
+        <button id="reset">Play again?</button>
+    </div>
 
 </body>
 </html>
