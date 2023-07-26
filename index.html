@@ -45,8 +45,25 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    let capitalizeFirstHumanSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
+    let capitalizeFirstCompSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1);
 //tie
-    if (playerSelection === computerSelection) {
+    if (playerSelection === "rock" && computerSelection === "scissors" ||
+        playerSelection === "paper" && computerSelection === "rock" ||
+        playerSelection === "scissors" && computerSelection === "paper") {
+        
+        playerScore++;
+
+        const announcement = document.querySelector('.announcement')
+        announcement.textContent = `You won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
+
+        const scoreHuman = document.querySelector('.scoreHuman')
+        scoreHuman.textContent = `Human: ${playerScore}`
+        
+        const scoreComputer = document.querySelector('.scoreComputer')
+        scoreComputer.textContent = `Computer: ${computerScore}`
+
+    } else if (playerSelection === computerSelection) {
         const resultDisplay = document.querySelector('.resultDisplay')
         const announcement = document.querySelector('.announcement')
         announcement.textContent = 'It\'s a tie! No points!'  
@@ -57,51 +74,19 @@ function playRound(playerSelection, computerSelection) {
         const scoreComputer = document.querySelector('.scoreComputer')
         scoreComputer.textContent = `Computer: ${computerScore}`
 
-//player win conditions
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        playerScore ++;
-
-        const resultDisplay = document.querySelector('.resultDisplay')
-        const announcement = document.querySelector('.announcement')
-        announcement.textContent = 'You won the round! Rock beats Scissors.'
-
-        const scoreHuman = document.querySelector('.scoreHuman')
-        scoreHuman.textContent = `Human: ${playerScore}`
-         
-        const scoreComputer = document.querySelector('.scoreComputer')
-        scoreComputer.textContent = `Computer: ${computerScore}`
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        playerScore ++;
-
-        const resultDisplay = document.querySelector('.resultDisplay')
-        const announcement = document.querySelector('.announcement')
-        announcement.textContent = 'You won the round! Paper beats Rock.'
-
-        const scoreHuman = document.querySelector('.scoreHuman')
-        scoreHuman.textContent = `Human: ${playerScore}`
-         
-        const scoreComputer = document.querySelector('.scoreComputer')
-        scoreComputer.textContent = `Computer: ${computerScore}`
-
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        playerScore ++;
-        return (`You won the round! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
-//computer win conditions
-    } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        computerScore ++;
-        return(`You lost the round! Rock beats Scissors. Your score is: ${playerScore}. The computer's score is: ${computerScore}`);
-    } else if (computerSelection === "paper" && playerSelection === "rock") {
-        computerScore ++;
-        return (`You lost the round! Paper beats Rock.Your score is: ${playerScore}. The computer's score is: ${computerScore}`);
-    } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        computerScore ++;
-        return(`You lost the round! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
     } else {
-        let playerSelection = prompt("Please input \"rock\", \"paper\", or \"scissors\": ")
+        computerScore ++;
+
+        const announcement = document.querySelector('.announcement')
+        announcement.textContent = `The Computer won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
+
+        const scoreHuman = document.querySelector('.scoreHuman')
+        scoreHuman.textContent = `Human: ${playerScore}`
+        
+        const scoreComputer = document.querySelector('.scoreComputer')
+        scoreComputer.textContent = `Computer: ${computerScore}`
     }
 }
-
-
 </script>
 
 </body>
