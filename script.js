@@ -1,9 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
 const announcement = document.querySelector('#announcement')
-const scoreHuman = document.querySelector('#scoreHuman')
-const scoreComputer = document.querySelector('#scoreComputer')
-const resultDisplay = document.querySelector('.resultDisplay')
+const scoreHuman = document.querySelector('#score-human')
+const scoreComputer = document.querySelector('#score-computer')
+const resultDisplay = document.querySelector('.result-display')
 const buttons = document.querySelectorAll('button');
 const resetButton = document.querySelector('#reset')
 
@@ -37,19 +37,19 @@ function playRound(playerSelection, computerSelection) {
         
         playerScore++;
         announcement.textContent = `You won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
-        scoreHuman.textContent = `Human: ${playerScore}`
-        scoreComputer.textContent = `Computer: ${computerScore}`
+        scoreHuman.textContent = `${playerScore}`
+        scoreComputer.textContent = `${computerScore}`
 
     } else if (playerSelection === computerSelection) {
         announcement.textContent = 'It\'s a tie! No points!'  
-        scoreHuman.textContent = `Human: ${playerScore}`
-        scoreComputer.textContent = `Computer: ${computerScore}`
+        scoreHuman.textContent = `${playerScore}`
+        scoreComputer.textContent = `${computerScore}`
 
     } else {
         computerScore ++;
         announcement.textContent = `The Computer won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
-        scoreHuman.textContent = `Human: ${playerScore}`
-        scoreComputer.textContent = `Computer: ${computerScore}`
+        scoreHuman.textContent = `${playerScore}`
+        scoreComputer.textContent = `${computerScore}`
     }
 }
 
@@ -70,13 +70,13 @@ function checkEndGame() {
 
 function announceHumanWinner() {
     announcement.textContent = 'You won the game! Huzzah!'
-    announcement.style.cssText = 'font: bold normal 2em "Tahoma, Geneva, Verdana, sans-serif"; color: #91C07D;'
+    announcement.style.cssText = 'font: bold normal 1.5em "Tahoma, Geneva, Verdana, sans-serif"; color: #00008B;'
     removeButtonEvents();
 }
 
 function announceComputerWinner() {
     announcement.textContent = 'The Computer won the game! Too bad.'
-    announcement.style.cssText = 'font: bold normal 2em "Tahoma, Geneva, Verdana, sans-serif"; color: #B85229;'
+    announcement.style.cssText = 'font: bold normal 1.5em "Tahoma, Geneva, Verdana, sans-serif"; color: #B85229;'
     removeButtonEvents();
 }
 
@@ -84,4 +84,8 @@ function removeButtonEvents() {
     buttons.forEach((button) => {
         button.removeEventListener('click', playGame)
     })
+}
+
+function firstToFive() {
+
 }

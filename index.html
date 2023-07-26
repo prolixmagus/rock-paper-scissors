@@ -10,21 +10,35 @@
 
 <body>
     <div class="wrapper">
-        <div>
-            <button class="choice" id='rock'>Rock</button>
+        <div class="welcome">
+            <h1>Welcome to ... 
+            <br></br>
+            <span style='color: #49663f;'>Rock</span>, <span style='color: #807870;'>Paper</span>, <span style='color: #205e91;'>Scissors</span>!!!
+            </h1>
+        </div>
+        <div class="top-row-buttons">
+            <button class="choice" id='rock' img src="images/rock.png">Rock</button>
             <button class="choice" id='paper'>Paper</button>
         </div>
         <div>
             <button class="choice" id='scissors'>Scissors</button>
         </div>
-        <div class="resultDisplay">
-            <p id="scoreHuman"></p>
-            <p id="scoreComputer"></p>
+        <div class="score-wrapper">
+            <div class="result-display">
+                <div class="score-box"> <em>Human:&nbsp;</em>
+                    <div id="score-human"></div>
+                </div>
+                <div class="score-box"> <em>Computer:&nbsp; </em>
+                    <div id="score-computer"></div>
+                </div>
+            </div>
+            <div class="announcement-wrapper">
+                <div id="announcement"></div>
+            </div>
         </div>
-        <div>
-            <p id="announcement"></p>
+        <div id="reset-div">
+            <button class="restart" id="reset">Play again?</button>
         </div>
-        <button id="reset">Play again?</button>
     </div>
 
 </body>

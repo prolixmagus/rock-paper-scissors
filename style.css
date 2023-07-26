@@ -1,0 +1,113 @@
+html {
+   background-color: #D8BA8E;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    
+}
+
+.welcome {
+    text-align: center;
+    width: 50%;
+    border: .5em solid #690a12;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.result-display {
+    width: 40%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+div#announcement {
+    width: 100%;
+}
+.score-wrapper {
+    display: flex;
+    width: 80%;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.score-box {
+    border: .1em solid #690a12;
+    font-size: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+
+}
+
+.restart {
+    background-color: #cdd2f1;
+    color: black;
+    margin-top: 50%;
+    padding: 10px;
+}
+
+.restart:hover {
+    background-color: black;
+    color: #cdd2f1;
+}
+
+#announcement {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding:10px;
+    margin: 10px;
+}
+
+.announcement-wrapper {
+    width: 100%;
+    border: .1em solid #690a12;
+    display: flex;
+    
+}
+.choice {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+
+.choice#rock:hover {
+    background-color: #49663f;
+    scale: 1.1;
+    font-weight: bolder;
+    
+}
+
+.choice#paper:hover {
+    background-color: #807870;
+    scale: 1.1;
+    font-style: italic;
+    font-size: 1.2 em;
+}
+
+.choice#scissors:hover {
+    background-color: #205e91;
+    scale: 1.1;
+    font-variant: small-caps;
+    font-size: 1.2 em;
+}
+
+.top-row-buttons {
+    margin-top: 25px;
+    font-size: 1.2 em;
+}
+
