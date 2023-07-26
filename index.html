@@ -24,15 +24,24 @@ let computerScore = 0;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', function game() {
         let playerSelection = button.classList.value
         let computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection)
+        checkEndGame();
     })
 })
-// *** game logic *** //
 
+// if (checkEndGame()) 
+// create a div that pronounces the winner and contains a button to reset with class '.restart-btn' -> the following code
+        // document.querySelector('.restart-btn').addEventListener('click', function(){
+        //window.location.reload();
+        //return false;
+        //});
+// removeEventListener that allows clicks ^^^ above with .forEachmethod (just reverse the baove)
+// else <- this is false 
 
+// functions
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
@@ -87,6 +96,27 @@ function playRound(playerSelection, computerSelection) {
         scoreComputer.textContent = `Computer: ${computerScore}`
     }
 }
+
+function checkEndGame() {
+        if (playerScore >= 5 && computerScore < 5) {
+            console.log("You won the game!");
+            return true;
+        } else if (computerScore >=5 && playerScore < 5) {
+            console.log("You lost the game!");
+            return true;
+        } else {
+            return false;
+        }
+}
+
+function game() {
+    let playerSelection = button.classList.value
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection)
+    checkEndGame();
+}
+
+//
 </script>
 
 </body>
