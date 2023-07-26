@@ -6,11 +6,32 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
+<div>
+    <button class='rock'>Rock</button>
+    <button class='paper'>Paper</button>
+    <button class='scissors'>Scissors</button>
+</div>
+<div class="resultDisplay">
+    <p class="announcement"></p>
+    <p class="scoreHuman"></p>
+    <p class="scoreComputer"></p>
+</div>
 
 <script>
 
 let playerScore = 0;
 let computerScore = 0;
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.classList.value
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection)
+    })
+})
+// *** game logic *** //
+
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -24,23 +45,44 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let validInputs = ["rock", "paper", "scissors"]
-    
-    while 
-    (!validInputs.includes(playerSelection.toLowerCase())) {
-    playerSelection = prompt("Please input \"rock\", \"paper\", or \"scissors\": ")
-    }
-    
 //tie
     if (playerSelection === computerSelection) {
-        return(`It's a tie!" No points for anybody! You still have ${playerScore} and the computer still has ${computerScore}`)
+        const resultDisplay = document.querySelector('.resultDisplay')
+        const announcement = document.querySelector('.announcement')
+        announcement.textContent = 'It\'s a tie! No points!'  
+
+        const scoreHuman = document.querySelector('.scoreHuman')
+        scoreHuman.textContent = `Human: ${playerScore}`
+         
+        const scoreComputer = document.querySelector('.scoreComputer')
+        scoreComputer.textContent = `Computer: ${computerScore}`
+
 //player win conditions
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore ++;
-        return(`You won the round! Rock beats Scissors. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+
+        const resultDisplay = document.querySelector('.resultDisplay')
+        const announcement = document.querySelector('.announcement')
+        announcement.textContent = 'You won the round! Rock beats Scissors.'
+
+        const scoreHuman = document.querySelector('.scoreHuman')
+        scoreHuman.textContent = `Human: ${playerScore}`
+         
+        const scoreComputer = document.querySelector('.scoreComputer')
+        scoreComputer.textContent = `Computer: ${computerScore}`
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore ++;
-        return(`You won the round! Paper beats Rock. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
+
+        const resultDisplay = document.querySelector('.resultDisplay')
+        const announcement = document.querySelector('.announcement')
+        announcement.textContent = 'You won the round! Paper beats Rock.'
+
+        const scoreHuman = document.querySelector('.scoreHuman')
+        scoreHuman.textContent = `Human: ${playerScore}`
+         
+        const scoreComputer = document.querySelector('.scoreComputer')
+        scoreComputer.textContent = `Computer: ${computerScore}`
+
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore ++;
         return (`You won the round! Scissors beats Paper. Your score is: ${playerScore}. The computer's score is: ${computerScore}`)
@@ -59,35 +101,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function checkEndGame() {
-    if (playerScore >= 5 && computerScore < 5) {
-        console.log("You won the game!");
-        return true;
-    } else if (computerScore >=5 && playerScore < 5) {
-        console.log("You lost the game!");
-        return true;
-    } else {
-        return false;
-    }
-}
 
-function game(){
-    let playerSelection = prompt("Get ready to throw hands!");
-    if (playerSelection === null) {
-        alert("Thank you for playing!");
-        return true;
-    }
-    let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-    return checkEndGame();
-}
-
-while (true) {
-    let gameEnded = game();
-    if (gameEnded == true) {
-        break;
-    }
-}
 </script>
 
 </body>
