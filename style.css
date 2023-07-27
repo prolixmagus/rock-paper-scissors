@@ -58,6 +58,7 @@ h1 {
     height: 40%;
     width: 10%;
     display: none;
+    border-radius: 15%;
 }
 
 .restart:hover {
