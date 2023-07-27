@@ -15,8 +15,6 @@ resetButton.addEventListener('click', () => {
         window.location.reload();
 })
 
-// functions
-
 function displayButton () {
     resetButton.style.display = 'block'
 }
@@ -35,7 +33,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     let capitalizeFirstHumanSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
     let capitalizeFirstCompSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1);
-//tie
+
     if (playerSelection === "rock" && computerSelection === "scissors" ||
         playerSelection === "paper" && computerSelection === "rock" ||
         playerSelection === "scissors" && computerSelection === "paper") {
