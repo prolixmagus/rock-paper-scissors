@@ -53,7 +53,7 @@ function playRound(playerSelection, computerSelection) {
 
     } else {
         computerScore ++;
-        announcement.textContent = `The Computer won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
+        announcement.textContent = `The Computer won the round! ${capitalizeFirstCompSelection} beats ${capitalizeFirstHumanSelection}!`
         scoreHuman.textContent = `${playerScore}`
         scoreComputer.textContent = `${computerScore}`
     }
