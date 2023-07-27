@@ -45,6 +45,7 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === "scissors" && computerSelection === "paper") {
         
         playerScore++;
+    
         announcement.textContent = `You won the round! ${capitalizeFirstHumanSelection} beats ${capitalizeFirstCompSelection}!`
         scoreHuman.textContent = `${playerScore}`
         scoreComputer.textContent = `${computerScore}`
