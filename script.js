@@ -17,10 +17,6 @@ resetButton.addEventListener('click', () => {
 
 // functions
 
-resetButton.addEventListener('click', () => {
-
-})
-
 function displayButton () {
     resetButton.style.display = 'block'
 }
@@ -96,8 +92,4 @@ function removeButtonEvents() {
     buttons.forEach((button) => {
         button.removeEventListener('click', playGame)
     })
-}
-
-function firstToFive() {
-
 }
