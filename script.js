@@ -16,6 +16,15 @@ resetButton.addEventListener('click', () => {
 })
 
 // functions
+
+resetButton.addEventListener('click', () => {
+
+})
+
+function displayButton () {
+    resetButton.style.display = 'block'
+}
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
@@ -72,12 +81,14 @@ function announceHumanWinner() {
     announcement.textContent = 'You won the game! Huzzah!'
     announcement.style.cssText = 'font: bold normal 1.5em "Tahoma, Geneva, Verdana, sans-serif"; color: #00008B;'
     removeButtonEvents();
+    displayButton();
 }
 
 function announceComputerWinner() {
     announcement.textContent = 'The Computer won the game! Too bad.'
     announcement.style.cssText = 'font: bold normal 1.5em "Tahoma, Geneva, Verdana, sans-serif"; color: #B85229;'
     removeButtonEvents();
+    displayButton();
 }
 
 function removeButtonEvents() {

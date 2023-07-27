@@ -10,11 +10,17 @@
 
 <body>
     <div class="wrapper">
-        <div class="welcome">
-            <h1>Welcome to ... 
-            <br></br>
-            <span style='color: #49663f;'>Rock</span>, <span style='color: #807870;'>Paper</span>, <span style='color: #205e91;'>Scissors</span>!!!
-            </h1>
+        <div class="welcome-wrap">
+            <img class="rock-image" src="images/rock.png">
+            <div class="welcome">
+                <h1>Welcome to ... 
+                <br></br>
+                    <span style='color: #49663f;'>Rock</span><span style='color: #807870;'>
+                    Paper</span>
+                    <span style='color: #205e91;'>Scissors</span>
+                    </h1>
+            </div>
+            <img class="rock-image" src="images/paper.png">
         </div>
         <div class="top-row-buttons">
             <button class="choice" id='rock' img src="images/rock.png">Rock</button>
@@ -34,11 +40,10 @@
             </div>
             <div class="announcement-wrapper">
                 <div id="announcement"></div>
+                <button class="restart" id="reset">Again?</button>
             </div>
         </div>
-        <div id="reset-div">
-            <button class="restart" id="reset">Play again?</button>
-        </div>
+        <img class="rock-image" src="images/scissors.png">
     </div>
 
 </body>
